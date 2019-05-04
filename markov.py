@@ -12,7 +12,7 @@ def open_and_read_file(file_path):
     """
 
     # your code goes here
-    contents = open("file_path").read()
+    contents = open(file_path).read()
     
     return contents
 
@@ -42,10 +42,20 @@ def make_chains(text_string):
         [None]
     """
 
+    
+
     chains = {}
 
     # your code goes here
-
+    words = text_string.split()
+    for i in (range(len(words) - 2)):
+        key = (words[i], words[i + 1])
+        value = words[i + 2]
+        if key not in chains:
+            chains[key] = []
+        chains[key].append(value)
+    
+    print(chains)
     return chains
 
 
